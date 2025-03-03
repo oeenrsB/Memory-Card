@@ -1,0 +1,251 @@
+.btn {
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clear {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+
+    padding: 10px 15px;
+    font-family: 20px;
+}
+
+body > h1 {
+    /* position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    margin: 30px auto;
+    
+    max-width: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-small {
+    margin-left: 10px;
+    font-size: 20px;
+    padding: 3px 10px;
+
+    z-index: 1;
+}
+
+.btn-ghost {
+    background-color: transparent;
+    font-size: 20px;
+    /* box-shadow: 0 0 0 rgba(transparent, 1); */
+    box-shadow: none;
+    border: 2px solid transparent;
+    transition: 0.5s;
+}
+
+.btn-ghost:hover {
+    color: red;
+    transform: scale(1.5);
+}
+
+/******************************************************************/
+
+.cards {
+    perspective: 1000px;
+    position: relative;
+    width: 550px;
+    height: 400px;
+    max-width: 100%;
+}
+
+.card {
+    position: absolute;
+    opacity: 0;
+    font-size: 1.5em;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    cursor: pointer;
+    transform: translateX(50%) rotateY(-15deg);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.card.left {
+    transform: translateX(-50%) rotateY(15deg);
+}
+.card.right {
+    transform: translateX(100%) rotateY(0deg);
+}
+
+.card.active {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+}
+
+.inner-card {
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    /* padding: 20px; */
+    position: relative;
+
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+}
+
+.card.show-answer .inner-card {
+    transform: rotateX(-180deg);
+}
+
+.inner-card-front,
+.inner-card-back {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    /* text-align: center; */
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.inner-card-front {
+    transform: rotateX(0deg);
+    /* z-index: 2; */
+}
+
+.inner-card-back {
+    transform: rotateX(-180deg);
+    /* z-index: 2; */
+}
+
+.inner-card-front,
+.inner-card-back {
+    font-size: 30px;
+    /* background-color: #ccc; */
+}
+
+.inner-card-front:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.inner-card-back:hover {
+    background-color: silver;
+    color: #FFF;
+}
+
+/* .inner-card:hover .inner-card-front p {
+    box-shadow: 0 1px 10px rgba(256, 256, 256, 0.5);
+} */
+
+.inner-card-front::before,
+.inner-card-back::before {
+    content: "\f021  Flip";
+    font-family: "font awesome 5 free", 'Lato', sans-serif;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #ccc;
+}
+
+.inner-card-front:hover::before,
+.inner-card-back::before:hover {
+    color: var(--secondary-color);
+}
+
+
+/* End Of Card */
+
+
+.navigation {
+    margin-top: 20px;
+    display: flex;
+}
+
+.nav-button {
+    cursor: pointer;
+    border: 1px solid #fff;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.nav-button:hover {
+    color: var(--secondary-color);
+}
+
+.navigation p {
+    margin: 0 25px;
+}
+
+/* End Of Nav */
+
+
+.add-container {
+    opacity: 0;
+    z-index: -1;
+
+    background-color: #f0f0f0;
+
+    position: absolute;
+    top: 0;
+    /* left: 0; */
+    bottom: 0;
+    /* right: 0; */
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s ease;
+}
+
+.add-container.show {
+    z-index: 2;
+    opacity: 1;
+}
+
+.add-container h2 {
+    margin: 25px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.form-group textarea {
+    min-width: 500px;
+    max-width: 100%;
+    border-radius: 5px;
+    border: 2px solid #aaa;
+    padding: 10px;
+}
+
+.btn.added-card {
+    padding: 10px 15px;
+}
+
+
+
+
